@@ -1,5 +1,6 @@
 streamlit
 pdfminer.six
+chromadb
 faiss-cpu
 langchain
 langchain_chroma
