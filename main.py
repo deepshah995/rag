@@ -57,8 +57,8 @@ if uploaded_file is not None:
         | llm
         | StrOutputParser()
     )
-    st.write("Summary of the doc:")
-    st.write(rag_chain.invoke("Give me a brief of the text"))
+    st.write("Completed processing the file. Now ask me anything about it!")
+    # st.write(rag_chain.invoke("Give me a brief of the text"))
 
     prompt = st.text_input("Enter your prompt")
     if prompt:
