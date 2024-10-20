@@ -18,8 +18,8 @@ from langchain_openai import ChatOpenAI
 import os
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["LANGCHAIN_API_KEY"] = st.secrets['LANGCHAIN_API_KEY']
+os.environ["OPENAI_API_KEY"] = st.secrets['OPENAI_API_KEY']
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
@@ -32,9 +32,6 @@ uploaded_file = st.file_uploader("Choose a file", "pdf")
 
 if uploaded_file is not None:
     text = extract_text(uploaded_file)
-    # st.write(text)
-
-    text = text + "Deep is currently working at the software company 'Workday' as a Software Engineer"
 
     # Split the text into smaller chunks
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
