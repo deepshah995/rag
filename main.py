@@ -11,7 +11,7 @@ from pdfminer.high_level import extract_text
 from langchain.docstore.document import Document
 from langchain_openai import ChatOpenAI
 from langchain.vectorstores import FAISS
-
+import chromadb
 
 import os
 
