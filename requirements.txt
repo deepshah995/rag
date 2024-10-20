@@ -1,6 +1,6 @@
 streamlit
 pdfminer.six
-beautifulsoup4
+faiss-cpu
 langchain
 langchain_chroma
 langchain_community
