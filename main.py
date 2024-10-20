@@ -20,7 +20,8 @@ os.environ["OPENAI_API_KEY"] = st.secrets['OPENAI_API_KEY']
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 
-st.title("PDF Question Answering App")
+st.title("RAG app for PDF")
+st.write("Ask questions about your PDF and get accurate answers with Retrieval Augmented Generation (RAG) app.")
 
 st.write(pdfminer.__version__)  
 
