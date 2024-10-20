@@ -1,9 +1,7 @@
 import pdfminer
-from pdfminer.high_level import extract_pages, extract_text
+from pdfminer.high_level import extract_text
 import streamlit as st
-import bs4
 from langchain import hub
-from langchain_chroma import Chroma
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -12,7 +10,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pdfminer.high_level import extract_text
 from langchain.docstore.document import Document
 from langchain_openai import ChatOpenAI
-
+from langchain.vectorstores import FAISS
 
 
 import os
@@ -44,7 +42,7 @@ if uploaded_file is not None:
     import chromadb
 
     chromadb.api.client.SharedSystemClient.clear_system_cache()
-    vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings())
+    vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
 
     # Retrieve and generate using the relevant snippets of the blog.
     retriever = vectorstore.as_retriever()
