@@ -11,7 +11,6 @@ from pdfminer.high_level import extract_text
 from langchain.docstore.document import Document
 from langchain_openai import ChatOpenAI
 from langchain.vectorstores import FAISS
-import chromadb
 
 import os
 
@@ -39,9 +38,8 @@ if uploaded_file is not None:
 
     # Split the document into smaller chunks
     splits = text_splitter.split_documents(docs) 
-    import chromadb
 
-    chromadb.api.client.SharedSystemClient.clear_system_cache()
+    # chromadb.api.client.SharedSystemClient.clear_system_cache()
     vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
 
     # Retrieve and generate using the relevant snippets of the blog.
